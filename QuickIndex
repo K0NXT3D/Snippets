@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+for file in ./*; do
+  echo '<a href="'${file##*/}'"><b>'${file##*/}'</a></b><br>' >> archive.html
+done
