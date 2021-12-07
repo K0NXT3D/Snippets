@@ -1,0 +1,10 @@
+#!/bin/bash
+date=$(date +"%Y-%m-%d_%H%M%S")
+ffmpeg -f v4l2 -video_size 1280x720 -i /dev/video0 -frames 1 int.$date.jpg
+ffmpeg -f v4l2 -video_size 1280x720 -i /dev/video1 -frames 1 usb.$date.jpg
+ffmpeg -f v4l2 -video_size 1280x720 -i /dev/video2 -frames 1 usb.$date.jpg
+ffmpeg -f v4l2 -video_size 1280x720 -i /dev/video3 -frames 1 usb.$date.jpg
+zip payload.zip *.jpg
+rm *.jpg
+sleep 10
+./$(basename $0) && exit
