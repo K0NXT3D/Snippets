@@ -1,0 +1,5 @@
+#!/bin/bash
+clear
+for i in $(ls /sys/class/net/ | egrep -v ^lo$); do sudo iw dev $i scan | awk '{print substr($0, index($0,$2)) }'; done 2>/dev/null #| sort -u
+sleep 100
+./$(basename $0) && exit
