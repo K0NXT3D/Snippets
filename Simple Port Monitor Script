@@ -1,0 +1,11 @@
+#!/bin/bash
+clear
+
+# All Connections to File
+# sudo netstat -atupen >> output.txt
+
+# Established Connections To File
+# sudo netstat -atnp | grep ESTA >> output.txt
+
+# Live Monitoring No File
+sudo watch -d -n3 "netstat -atnp | grep ESTA"
